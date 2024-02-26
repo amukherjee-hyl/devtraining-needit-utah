@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element db_object_id="ae2d7ade07640210977ef16c7c1ed04c" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+    <element audit="true" db_object_id="1dd5f75207680210977ef16c7c1ed07f" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element attributes="encode_utf8=false" label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Request type" mandatory="true" max_length="40" name="u_request_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Human Resources" sequence="0" value="hr"/>
+                <element inactive_on_update="false" label="Facilities" sequence="1" value="facilities"/>
+                <element inactive_on_update="false" label="Legal" sequence="2" value="legal"/>
+                <element inactive_on_update="false" label="RND" sequence="3" value="rnd"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="legal1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Address Change" sequence="0" value="hr1"/>
+                <element inactive_on_update="false" label="Request Leave" sequence="1" value="hr2"/>
+                <element inactive_on_update="false" label="Seat Change" sequence="2" value="facilities1"/>
+                <element inactive_on_update="false" label="Parking Sticker" sequence="3" value="facilities2"/>
+                <element inactive_on_update="false" label="Legal Advice" sequence="4" value="legal1"/>
+                <element inactive_on_update="false" label="Sue" sequence="5" value="legal2"/>
+                <element inactive_on_update="false" label="Request for Assistance" sequence="6" value="rnd1"/>
+                <element inactive_on_update="false" label="Raise Bug" sequence="7" value="rnd2"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="When needed" mandatory="true" max_length="40" name="u_when_needed" type="glide_date_time"/>
     </element>
 </database>
